@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/profile.css') }}">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <title>Profile</title>
+    
+</head>
+
+<body>
+    <h1>Book Recommendations</h1>
+    <!-- <div id="image">
+    <img src="{{url_for('static',filename='IMG/book57.jpg')}}" alt="" class="src">
+    </div> -->
+    {% if books %}
+    <div class="book-details">
+
+        {% for book in books %}
+        <div class="book-card">
+            <h3>Subject - {{ subject }}</h3>
+            <h5 class="book-name"><span>Book Name:</span> {{ book[2] }}</h5>
+            <h5 class="author"><span>Author:</span> {{ book[3] }}</h5>
+            <h5 class="amazon-link"><span>Amazon Link:</span> <a href="{{ book[4] }}" target="_blank">Visit Amazon</a></h5>
+        </div>
+       
+        {% endfor %}
+
+    </div>
+    <div class="back">
+        <a href="{{url_for('form')}}">
+            <button type="button" class="btn btn-primary">Go back</button></a>
+    </div>
+    {% else %}
+    <div class="not-found">
+        <h2>Sorry! No books found for the selected subject!</h2>
+        <a href="{{url_for('add_book')}}">
+            <button>Add Here</button></a>
+    </div>
+    {% endif %}
+
+</body>
+
+</html>

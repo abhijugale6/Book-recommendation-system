@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Recommendation</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/style.css')}}">
+</head>
+<body>
+   
+   <div id="first-page">
+    <img src="{{url_for('static',filename='IMG/book57.jpg')}}" alt="" class="src">
+    <!-- <h1>Book<span> Recommendation</span> System</h1> -->
+    <h1>Book<span>W</span>hiz</h1>
+    <h2>Are You Aware of Academics?</h2>
+    <p>We give some reference books for your subjects</p>
+    <a href="{{url_for('form')}}">    
+    <button>Search</button></a>
+  </div>
+   <!-- <div id="second-page" >
+      <img src="{{url_for('static',filename='IMG/book2.jpg')}}" alt=""class="src">  -->
+  <!-- <form action="/profile" method="POST">
+
+    <label for="branch">Branch: Computer Enginnering</label>
+        <br>
+    
+    
+    
+        <label for="year">Year of Study:</label>
+        <select id="year" name="year" required onchange="updateSubjects()">
+          <option value="">-- Select Year --</option>
+          <option value="1">First Year</option>
+          <option value="2">Second Year</option>
+          <option value="3">Third Year</option>
+          <option value="4">Fourth Year</option>
+        </select><br><br>
+    
+        <label for="semester">Semester:</label>
+        <select id="semester" name="semester" required onchange="updateSubjects()">
+          <option value="">-- Select Semester --</option>
+          <option value="1">1st Semester</option>
+          <option value="2">2nd Semester</option>
+          
+         
+        </select><br><br>
+    
+        <label for="subject">Subject:</label>
+        <select id="subject" name="subject" required></select><br><br>
+    
+        <input type="submit" value="Submit">
+      </form>
+
+      <script>
+        
+
+        function updateSubjects() {
+            var yearSelect = document.getElementById("year");
+            var semesterSelect = document.getElementById("semester");
+            var subjectSelect = document.getElementById("subject");
+
+            // Clear existing options
+            subjectSelect.innerHTML = "";
+
+            // Get the selected year and semester
+            var selectedYear = yearSelect.value;
+            var selectedSemester = semesterSelect.value;
+
+            // Add options based on the selected year and semester
+            if (selectedYear === "1" && selectedSemester === "1") {
+                var subjects = ["Linear ALgebra", "APPLIED CHEMISTRY", "ECW","PPS","FME","OMP"];
+            } else if (selectedYear ==="1" && selectedSemester === "2") {
+                var subjects = ["UVC", "Computer Science", "ECS","DT","SPE","BEE","EGD","EM"];
+            }
+            if (selectedYear === "2" && selectedSemester === "1") {
+                var subjects = ["Digital Logic Design", "DSA-I", "DTL","DSGT","ODE-MVC","FCS"];
+            } else if (selectedYear === "2" && selectedSemester === "2") {
+                var subjects = ["VCPDE", "Computer Science", "MPT","Biology","SA","TOC"];
+            }
+             // Create and add option elements
+             subjects.forEach(function (subject) {
+                var option = document.createElement("option");
+                option.value = subject;
+                option.text = subject;
+                subjectSelect.appendChild(option);
+            });
+        }
+
+        // Update subjects initially on page load
+        updateSubjects();
+           
+          
+
+    </script> -->
+
+</body>
+</html> 
+
