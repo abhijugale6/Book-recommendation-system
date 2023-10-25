@@ -7,7 +7,7 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'book_rec'
-app.config['MYSQL_PORT'] = 3308 
+app.config['MYSQL_PORT'] = 3306
 mysql = MySQL(app)
 
 
@@ -71,6 +71,7 @@ def project_form():
 def project_recommendations():
     if request.method == 'POST':
         subject = request.form['subject']
+
         cursor = mysql.connection.cursor()
         condition = "subject = %s"
         cursor.execute("SELECT * FROM project WHERE " + condition, (subject,))
