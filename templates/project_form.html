@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE,edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='CSS/style1.css')}}">
+    <title>Project Recommendation</title>
+</head>
+<body>
+    <div id="form">
+        <form action="/project_recommendations" method="POST">
+            <h3>Select a Year and Project Subject</h3>
+            
+            <label for="year">Year of Study:</label>
+            <select id="year" name="year" required onchange="updateSubjects()">
+           
+                <option value="2">Second Year</option>
+                <option value="3">Third Year</option>
+            </select><br><br>
+            
+            <label for="subject">Project Subject:</label>
+            <select id="subject" name="subject" required></select><br><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function updateSubjects() {
+            var yearSelect = document.getElementById("year");
+            var subjectSelect = document.getElementById("subject");
+
+            // Clear existing options
+            subjectSelect.innerHTML = "";
+
+            // Get the selected year
+            var selectedYear = yearSelect.value;
+
+            // Add options based on the selected year
+            if (selectedYear === "2") {
+                var subjects = ["RPPOOP", "DTL", "DLD", "MPT", "DSA-1", "DSA-2"];
+            } else if (selectedYear === "3") {
+                var subjects = ["CO", "SE", "DBMS", "CN"];
+            } else {
+                var defaultOption = document.createElement("option");
+                defaultOption.value = "";
+                defaultOption.text = "-- Select Year First --";
+                subjectSelect.appendChild(defaultOption);
+            }
+
+            // Create and add option elements
+            subjects.forEach(function (subject) {
+                var option = document.createElement("option");
+                option.value = subject;
+                option.text = subject;
+                subjectSelect.appendChild(option);
+            });
+        }
+
+        // Update subjects initially on page load
+        updateSubjects();
+    </script>
+</body>
+</html>
