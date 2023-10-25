@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/add_project.css') }}">
+
+    <title>Add Project</title>
+</head>
+
+<body>
+    <h1>Add Project</h1>
+    <div class="container">
+        <form action="/add_project" method="POST">
+            <div class="form-group">
+                <label for="subject" class="label">Subject:</label>
+                <input type="text" id="subject" name="subject" class="input" required>
+            </div>
+            <div class="form-group">
+                <label for="project_name" class="label">Project Name:</label>
+                <input type="text" id="project_name" name="project_name" class="input" required>
+            </div>
+            <div class="form-group">
+                <label for="project_info" class="label">Project Information:</label>
+                <textarea id="project_info" name="project_info" class="input" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="button">Add Project</button>
+        </form>
+    </div>
+</body>
+
+</html>
